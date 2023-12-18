@@ -1,6 +1,12 @@
-
-<p align="center">
-  <img width="350px" src="./assets/mockingbird.png" alt="mockingbird">
+<P align="center">
+<img width="350px" src="./assets/mockingbird.png"
+alt="mockingbird">
 </p>
 
 # PolyMimus
+
+## Overview
+
+## Usage
+
+## Acknowledgments
