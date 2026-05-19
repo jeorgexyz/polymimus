@@ -5,6 +5,11 @@ alt="mockingbird">
 
 # PolyMimus
 
+[![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-3776AB?logo=python&logoColor=white)](#installation)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
+[![Runs locally](https://img.shields.io/badge/runs-local%20only-2ea44f)](#overview)
+[![Powered by faster-whisper](https://img.shields.io/badge/powered%20by-faster--whisper-orange)](https://github.com/SYSTRAN/faster-whisper)
+
 Local multilingual speech transcription powered by [faster-whisper](https://github.com/SYSTRAN/faster-whisper). Runs entirely on your machine — no API key, no internet required after the first model download.
 
 ## Overview
@@ -69,4 +74,3 @@ MIT. See [LICENSE](./LICENSE).
 
 - [OpenAI Whisper](https://github.com/openai/whisper) — the underlying speech recognition model
 - [faster-whisper](https://github.com/SYSTRAN/faster-whisper) — efficient CTranslate2 inference
-
