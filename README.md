@@ -1,5 +1,5 @@
 <p align="center">
-<img width="350px" src="./assets/mockingbird.png"
+<img width="350px" src="./assets/polymimus_image.png"
 alt="mockingbird">
 </p>
 
@@ -24,6 +24,8 @@ Requires Python 3.9+ and [ffmpeg](https://ffmpeg.org/download.html) on your PATH
 ```bash
 pip install -e .
 ```
+
+Both `polymimus ...` and `python -m polymimus ...` work.
 
 ## Usage
 
@@ -91,7 +93,30 @@ pytest
 
 MIT. See [LICENSE](./LICENSE).
 
+## How it works
+
+polymimus is the practical end: faster-whisper does the inference, and this
+wraps it with language detection, VAD, subtitle output and a microphone
+mode.
+
+If you want to see what that call actually does,
+[lua-whisper](https://github.com/jeorgexyz/lua-whisper) is the same Whisper
+model implemented from scratch in about 1,200 lines of pure Lua -- mel
+spectrogram, encoder, cross-attention decoder and byte-level tokenizer, with
+every stage checked against PyTorch. It is built to be read rather than
+used, which the numbers make plain. Same 3.7-second clip, same model:
+
+| | time | transcript |
+|---|---|---|
+| polymimus (CTranslate2 int8) | **1.1s** | The quick brown fox jumps over the lazy dog. |
+| lua-whisper (pure Lua float32) | 353s | The quick brown fox jumps over the lazy dog. |
+
+320x apart and character-identical. The agreement is worth something in both
+directions: it is lua-whisper's strongest correctness evidence, and it is an
+independent check that this tool is doing what it claims.
+
 ## Acknowledgments
 
 - [OpenAI Whisper](https://github.com/openai/whisper) - the underlying speech recognition model
 - [faster-whisper](https://github.com/SYSTRAN/faster-whisper) - efficient CTranslate2 inference
+- [lua-whisper](https://github.com/jeorgexyz/lua-whisper) - the same model from scratch, built to be read
